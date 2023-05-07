@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "ok6TwQBEHlGkAHlsT0BqL9FKlWKuPHgT2spkVXfZLd0=",
+  "Source": "WHSAPI",
+  "BasePath": "_content/WHSAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
