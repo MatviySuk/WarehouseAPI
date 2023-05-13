@@ -5,11 +5,9 @@ namespace WHSAPI.Entities;
 
 public partial class FactWorksWithTask
 {
-    public int WorkId { get; set; }
+    public int WorksKey { get; set; }
 
-    public int WorkKey { get; set; }
-
-    public int TaskKey { get; set; }
+    public int ProjectKey { get; set; }
 
     public int StartDateKey { get; set; }
 
@@ -23,25 +21,19 @@ public partial class FactWorksWithTask
 
     public int DelayedTimeMinutes { get; set; }
 
-    public decimal FinalCost { get; set; }
+    public int TotalWorksCount { get; set; }
 
-    public decimal EstimatedCost { get; set; }
+    public int SuccessfulWorksCount { get; set; }
 
-    public string Category { get; set; } = null!;
+    public int DelayedWorksCount { get; set; }
 
-    public string TaskChange { get; set; } = null!;
-
-    public string WorkDescription { get; set; } = null!;
-
-    public string? DelayReason { get; set; }
-
-    public string WorkResult { get; set; } = null!;
+    public int FailedWorksCount { get; set; }
 
     public virtual DimEmployee EmployeeKeyNavigation { get; set; } = null!;
 
     public virtual DimDate EndDateKeyNavigation { get; set; } = null!;
 
-    public virtual DimDate StartDateKeyNavigation { get; set; } = null!;
+    public virtual DimProject ProjectKeyNavigation { get; set; } = null!;
 
-    public virtual DimTask TaskKeyNavigation { get; set; } = null!;
+    public virtual DimDate StartDateKeyNavigation { get; set; } = null!;
 }

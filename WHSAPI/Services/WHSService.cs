@@ -23,8 +23,8 @@ public class WHSService: IWHSService
             .Include(f => f.EndDateKeyNavigation)
             .Include(f => f.EmployeeKeyNavigation)
             .ThenInclude(emp => emp.RoleKeyNavigation)
-            .Include(f => f.TaskKeyNavigation)
-            .ThenInclude(ts => ts.ProjectKeyNavigation)
+            .Include(f => f.ProjectKeyNavigation)
+            .ThenInclude(p => p.IndustryKeyNavigation)
             .ToListAsync();
     }
 }

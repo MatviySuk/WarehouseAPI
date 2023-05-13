@@ -23,23 +23,23 @@ public class MapperProfile: Profile
             .ForMember(dest => dest.Role, opt => opt.MapFrom(src => src.RoleKeyNavigation))
             .ReverseMap();
         CreateMap<DimEmployee, DimEmployee>().ReverseMap();
+        
+        CreateMap<DimIndustry, DimIndustryView>()
+            .ForMember(dest => dest.ID, opt => opt.MapFrom(src => src.IndustryKey))
+            .ReverseMap();
+        CreateMap<DimRole, DimRole>().ReverseMap();
 
         CreateMap<DimProject, DimProjectView>()
             .ForMember(dest => dest.ID, opt => opt.MapFrom(src => src.ProjectKey))
             .ForMember(dest => dest.ProjectManager, opt => opt.MapFrom(src => src.ProjectManagerKeyNavigation))
+            .ForMember(dest => dest.Industry, opt => opt.MapFrom(src => src.IndustryKeyNavigation))
             .ReverseMap();
         CreateMap<DimProject, DimProject>().ReverseMap();
 
-        CreateMap<DimTask, DimTaskView>()
-            .ForMember(dest => dest.ID, opt => opt.MapFrom(src => src.TaskKey))
-            .ForMember(dest => dest.Project, opt => opt.MapFrom(src => src.ProjectKeyNavigation))
-            .ReverseMap();
-        CreateMap<DimTask, DimTask>().ReverseMap();
-
         CreateMap<FactWorksWithTask, FactWorksWithTaskView>()
-            .ForMember(dest => dest.ID, opt => opt.MapFrom(src => src.WorkKey))
+            .ForMember(dest => dest.ID, opt => opt.MapFrom(src => src.WorksKey))
             .ForMember(dest => dest.Employee, opt => opt.MapFrom(src => src.EmployeeKeyNavigation))
-            .ForMember(dest => dest.Task, opt => opt.MapFrom(src => src.TaskKeyNavigation))
+            .ForMember(dest => dest.Project, opt => opt.MapFrom(src => src.ProjectKeyNavigation))
             .ForMember(dest => dest.StartDate, opt => opt.MapFrom(src => src.StartDateKeyNavigation))
             .ForMember(dest => dest.EndDate, opt => opt.MapFrom(src => src.EndDateKeyNavigation))
             .ReverseMap();

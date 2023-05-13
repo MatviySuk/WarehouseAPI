@@ -4,7 +4,7 @@ public class FactWorksWithTaskView
 {
     public int ID { get; set; }
     
-    public DimTaskView Task { get; set; } = null!;
+    public DimProjectView Project { get; set; } = null!;
 
     public DimDateView StartDate { get; set; } = null!;
 
@@ -18,17 +18,11 @@ public class FactWorksWithTaskView
 
     public int DelayedTimeMinutes { get; set; }
 
-    public decimal FinalCost { get; set; }
+    public int TotalWorksCount { get; set; }
 
-    public decimal EstimatedCost { get; set; }
+    public int SuccessfulWorksCount { get; set; }
 
-    public string Category { get; set; } = null!;
+    public int DelayedWorksCount { get; set; }
 
-    public string TaskChange { get; set; } = null!;
-
-    public string WorkDescription { get; set; } = null!;
-
-    public string? DelayReason { get; set; }
-
-    public string WorkResult { get; set; } = null!;
+    public int FailedWorksCount { get; set; }
 }

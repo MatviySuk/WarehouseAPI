@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using WHSAPI.Entities;
 
 namespace WHSAPI.Context;
 
