@@ -5,10 +5,10 @@
       <map>
         <entry key="Common:buildConfiguration" value="Debug" />
         <entry key="Common:dbContextFolder" value="Context" />
-        <entry key="Common:dbContextName" value="WHSDbContext" />
+        <entry key="Common:dbContextName" value="MainDB" />
         <entry key="Common:generateOnConfiguring" value="true" />
         <entry key="Common:noBuild" value="false" />
-        <entry key="Common:outputFolder" value="Entities" />
+        <entry key="Common:outputFolder" value="Entities/Entities" />
         <entry key="Common:provider" value="Microsoft.EntityFrameworkCore.SqlServer" />
         <entry key="Common:targetFramework" value="net6.0" />
         <entry key="Common:useAttributes" value="false" />

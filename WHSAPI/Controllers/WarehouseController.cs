@@ -37,13 +37,28 @@ public class WarehouseController : ControllerBase
         return Ok(_mapper.Map<IList<DimDateView>>(dates));
     }
 
+    [HttpGet("lastload")]
+    public async Task<IActionResult> LastLoadTime()
+    {
+        var loadDatetime = await _dbService.LastLoad();
+        return Ok(new { LoadTime = loadDatetime });
+    }
+    
+    [HttpPost("cleanup")]
+    public async Task<IActionResult> WarehouseCleanUp()
+    {
+        var result = await _dbService.WHSCleanUp();
+        return Ok(new { isExecuted = true });
+    }
+
     [HttpPost("fullload")]
     public async Task<IActionResult> FullLoad()
     {
         var result = await _dbService.FullLoadWHS();
+        var loadDatetime = await _dbService.LastLoad();
         if (result >= 0)
         {
-            return Ok(new { RowsAffected = result });
+            return Ok(new { RowsAffected = result, LoadTime = loadDatetime });
         }
         else
         {
@@ -55,9 +70,10 @@ public class WarehouseController : ControllerBase
     public async Task<IActionResult> NewUpdate()
     {
         var result = await _dbService.UpdateNewWHS();
+        var loadDatetime = await _dbService.LastLoad();
         if (result >= 0)
         {
-            return Ok(new { RowsAffected = result });
+            return Ok(new { RowsAffected = result, LoadTime = loadDatetime });
         }
         else
         {
