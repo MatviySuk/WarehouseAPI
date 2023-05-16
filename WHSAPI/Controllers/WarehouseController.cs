@@ -1,5 +1,6 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using WHSAPI.Entities;
 using WHSAPI.Services;
 using WHSAPI.ViewModels;
 
@@ -28,6 +29,13 @@ public class WarehouseController : ControllerBase
         var works = await _whsService.GetAll();
         return Ok(_mapper.Map<IList<FactWorksWithTaskView>>(works));
     }
+    
+    [HttpGet("alldates")]
+    public async Task<IActionResult> GetAllDates()
+    {
+        var dates = await _whsService.GetAllDates();
+        return Ok(_mapper.Map<IList<DimDateView>>(dates));
+    }
 
     [HttpPost("fullload")]
     public async Task<IActionResult> FullLoad()
@@ -43,7 +51,7 @@ public class WarehouseController : ControllerBase
         }
     }
     
-    [HttpPost("newupdate")]
+    [HttpPost("newload")]
     public async Task<IActionResult> NewUpdate()
     {
         var result = await _dbService.UpdateNewWHS();

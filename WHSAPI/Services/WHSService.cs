@@ -27,4 +27,9 @@ public class WHSService: IWHSService
             .ThenInclude(p => p.IndustryKeyNavigation)
             .ToListAsync();
     }
+
+    public async Task<IList<DimDate>> GetAllDates()
+    {
+        return await context.DimDates.ToListAsync();
+    }
 }
