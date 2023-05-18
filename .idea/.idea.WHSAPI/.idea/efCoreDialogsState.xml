@@ -5,7 +5,7 @@
       <map>
         <entry key="Common:buildConfiguration" value="Debug" />
         <entry key="Common:dbContextFolder" value="Context" />
-        <entry key="Common:dbContextName" value="MainDB" />
+        <entry key="Common:dbContextName" value="ITCompanyDbContext" />
         <entry key="Common:generateOnConfiguring" value="true" />
         <entry key="Common:noBuild" value="false" />
         <entry key="Common:outputFolder" value="Entities/Entities" />

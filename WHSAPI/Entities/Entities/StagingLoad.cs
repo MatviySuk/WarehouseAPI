@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace WHSAPI.Entities;
+namespace WHSAPI.Entities.Entities;
 
 public partial class StagingLoad
 {

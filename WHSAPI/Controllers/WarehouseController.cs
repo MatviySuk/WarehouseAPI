@@ -43,6 +43,14 @@ public class WarehouseController : ControllerBase
         var loadDatetime = await _dbService.LastLoad();
         return Ok(new { LoadTime = loadDatetime });
     }
+
+    [HttpGet("metadata")]
+    public async Task<IActionResult> GetMetadata()
+    {
+        var meta = await _dbService.GetOLTPDBMetadata();
+        return Ok(meta);
+    }
+    
     
     [HttpPost("cleanup")]
     public async Task<IActionResult> WarehouseCleanUp()
